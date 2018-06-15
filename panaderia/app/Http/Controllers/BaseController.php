@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\ApiResponse;
+use Illuminate\Http\Request;
 use Panatex\Servicios\BaseServicio;
 
 class BaseController extends Controller
@@ -27,6 +28,31 @@ class BaseController extends Controller
             return  $this->servicioBase->listar();
         } catch (\Exception $e){
             return ApiResponse::respuestaError("Hubo un error al listar");
+        }
+    }
+    public function paginar()
+    {
+        try{
+            return  $this->servicioBase->paginate();
+        } catch (\Exception $e){
+            return ApiResponse::respuestaError("Hubo un error al listar");
+        }
+    }
+    public function leer($id)
+    {
+        try{
+            return  $this->servicioBase->obtener($id);
+        } catch (\Exception $e){
+            return ApiResponse::respuestaError("Hubo un error al buscar");
+        }
+    }
+    public function create(Request $request)
+    {
+        try{
+            $inputs = $request->all();
+            return  $this->servicioBase->create($inputs);
+        } catch (\Exception $e){
+            return ApiResponse::respuestaError($e->getMessage());
         }
     }
 }

@@ -29,6 +29,8 @@ import { UmComponent } from './components/um/um.component';
 import { DashComponent } from './components/dash/dash.component';
 import { UmBuscadorComponent } from './components/um/um-buscador/um-buscador.component';
 import { UmFormularioComponent } from './components/um/um-formulario/um-formulario.component';
+import {UnidadMedidaService} from './services/unidad-medida.service';
+import { NavegacionComponent } from './components/navegacion/navegacion.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { UmFormularioComponent } from './components/um/um-formulario/um-formular
     UmComponent,
     DashComponent,
     UmBuscadorComponent,
-    UmFormularioComponent
+    UmFormularioComponent,
+    NavegacionComponent
   ], entryComponents: [ MensajeAlertComponent, MensajeExitoComponent, LoadingComponent, MensajeConfirmComponent],
   imports: [
     BrowserModule,
@@ -68,7 +71,8 @@ import { UmFormularioComponent } from './components/um/um-formulario/um-formular
   providers: [
     UtilService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    UnidadMedidaService
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

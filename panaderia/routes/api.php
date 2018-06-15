@@ -21,6 +21,11 @@ Route::post('login', 'AuthController@login');
 Route::post('recover', 'AuthController@recover');
 
 Route::get('unidad-medida', 'UnidadMedidaController@listar');
+Route::get('unidad-medida/paginar', 'UnidadMedidaController@paginar');
+Route::get('unidad-medida/{id}', 'UnidadMedidaController@leer');
+Route::post('unidad-medida/', 'UnidadMedidaController@create');
+
+
 Route::group(['middleware' => ['jwt.auth']], function() {
     Route::get('logout', 'AuthController@logout');
     Route::get('test', function(){

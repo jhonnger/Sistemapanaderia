@@ -51,3 +51,30 @@ body {
 .mat-raised-button{
   margin: 5px !important;
 }
+mat-header-cell{
+  color: #FFF !important;
+}
+.inline-section{
+  display: flex;
+}
+.inline-section > div {
+  display: inline-block;
+}
+.mitad-section{
+  width: 50%;
+  padding: 0 15px
+}
+.mat-row:hover{
+  background-color: #c3cdff;
+}
+@media (max-width: 650px){
+  .mitad-section{
+    width: calc(100% - 20px);
+    padding: 10px;
+    display: block;
+  }
+  .inline-section{
+    display: block;
+  }
+
+}

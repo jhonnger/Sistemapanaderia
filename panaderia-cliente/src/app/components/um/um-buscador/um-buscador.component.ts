@@ -2,6 +2,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {UnidadMedida} from '../../../interfaces/unidadMedida.interface';
 import {BusquedaPaginada} from '../../../interfaces/busquedaPaginada.interface';
+import {UnidadMedidaService} from '../../../services/unidad-medida.service';
+import {UtilService} from '../../../services/util.service';
 
 @Component({
   selector: 'app-um-buscador',
@@ -20,17 +22,35 @@ export class UmBuscadorComponent implements OnInit {
     paginaActual: 1,
     totalPaginas: 1
   };
-  constructor() { }
+  constructor(private _unidadadMedidaService: UnidadMedidaService,
+              private _utilService: UtilService) { }
 
   ngOnInit() {
+    this.listar();
   }
-  selecciona(id: any){
+  selecciona(id: any) {
 
     this.seleccionaFila.emit(id);
   }
-  listar(event: any){
-
+  listar(pagina = 1) {
+    this._utilService.showLoading();
+    this._unidadadMedidaService.paginar(pagina).subscribe(
+      (data: any) => {
+        this._utilService.hideLoading();
+        if (data.success) {
+          const paginacion: any  = data.data;
+          this.unidades = paginacion.data;
+          this.paginacion.paginaActual = paginacion.current_page;
+          this.paginacion.totalPaginas = Math.floor(paginacion.total / paginacion.per_page) + 1;
+          this.dataSource = new MatTableDataSource(this.unidades);
+          console.log(paginacion);
+        }
+      }, err => {
+        this._utilService.hideLoading();
+        console.log('Error');
+      }
+    );
   }
-  applyFilter(event: any){}
+  applyFilter(event: any) {}
 
 }

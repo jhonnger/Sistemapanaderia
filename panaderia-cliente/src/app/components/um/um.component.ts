@@ -38,23 +38,26 @@ export class UmComponent implements OnInit {
     this.buttons.cancelar = cancelar;
   }
   nuevo () {
+    this.uMFormularioComponent.controls = true;
     this.modificarBotones(false, true, false, false, true);
   }
   modificar() {
+    this.uMFormularioComponent.controls = true;
     this.modificarBotones(false, true, false, false, true);
   }
   cancelar() {
+    this.uMFormularioComponent.reiniciarFormulario();
     this.reiniciarBotones();
   }
   guardar() {
-
+    this.uMFormularioComponent.guardar();
   }
   eliminar() {
 
   }
   salida(entrada: any){
     this.modificarBotones(false, false, true, true, true);
-    //this.municipalidadFormularioComponent.traerMunicipalidad(entrada);
+    this.uMFormularioComponent.traer(entrada);
   }
 
 }

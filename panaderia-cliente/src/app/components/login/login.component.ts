@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Router} from '@angular/router';
@@ -11,7 +11,7 @@ import {FormControl, Validators} from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   usuario = {
     usuario: '',
@@ -32,6 +32,9 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
+  }
+  ngOnDestroy(){
+    this.utilService.hideLoading();
   }
 
   submit() {

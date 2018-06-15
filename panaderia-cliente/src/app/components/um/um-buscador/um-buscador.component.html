@@ -2,7 +2,7 @@
   <div class="inline">
     <div class="input-search-muni">
       <mat-form-field class="full-width">
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar...">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Nombre...">
       </mat-form-field>
     </div>
     <div>
@@ -30,7 +30,7 @@
       <mat-cell *matCellDef="let element"> {{element.simbolo}} </mat-cell>
     </ng-container>
 
-    <mat-header-row class="azul" *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-header-row class="primary" *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;let pos = index;"
              (click)="selecciona(row.id)"></mat-row>
   </mat-table>

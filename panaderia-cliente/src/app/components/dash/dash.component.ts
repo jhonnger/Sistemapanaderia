@@ -27,7 +27,7 @@ export class DashComponent implements OnInit {
               media: MediaMatcher,
               iconRegistry: MatIconRegistry,
               sanitizer: DomSanitizer) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = media.matchMedia('(max-width: 950px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
 
