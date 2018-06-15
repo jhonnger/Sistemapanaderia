@@ -1,0 +1,32 @@
+
+<div style="padding: 15px;">
+  <h2>Unidad de medida</h2>
+</div>
+<div style="display: flex; width: 100%">
+  <div style="display: inline-block; width: 50%; padding: 15px">
+    <app-um-buscador (seleccionaFila) ="salida($event)"></app-um-buscador>
+  </div>
+  <div style="display: inline-block; width: 50%; padding: 15px">
+    <app-um-formulario></app-um-formulario>
+    <div>
+      <div class="full-width text-center">
+        <button [disabled]="!buttons.nuevo" (click)="nuevo()" mat-raised-button color="primary">
+          <mat-icon aria-label="Nueva muni">&#xE873;</mat-icon> Nuevo
+        </button>
+        <button [disabled]="!buttons.guardar" (click)="guardar()" mat-raised-button color="primary">
+          <mat-icon aria-label="Nueva muni">&#xE161;</mat-icon> Guardar
+        </button>
+        <button [disabled]="!buttons.modificar" (click)="modificar()" mat-raised-button color="primary">
+          <mat-icon aria-label="Nueva muni">&#xE254;</mat-icon> Modificar
+        </button>
+        <button [disabled]="!buttons.eliminar" (click)="eliminar()" mat-raised-button color="primary">
+          <mat-icon aria-label="Nueva muni">&#xE92B;</mat-icon> Eliminar
+        </button>
+
+        <button [disabled]="!buttons.cancelar" (click)="cancelar()" mat-raised-button color="primary">
+          <mat-icon aria-label="Nueva muni">&#xE5C9;</mat-icon> Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

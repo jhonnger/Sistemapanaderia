@@ -1,0 +1,63 @@
+<div class="container-home" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <div class="example-app-name">Panadex <mat-icon class="pan-icon" svgIcon="pan-icon"></mat-icon></div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav class="sidenav" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+
+        <mat-accordion displayMode="flat">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon mat-list-icon svgIcon="panaderia"></mat-icon> Panadería
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLink="."><mat-icon mat-list-icon svgIcon="pedido"></mat-icon> Generar Pedidos</a>
+            <a mat-list-item routerLink="."><mat-icon mat-list-icon svgIcon="ver-order"></mat-icon> Ver Pedidos</a>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon mat-list-icon>settings</mat-icon> Configuraciones
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Productos
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <a mat-list-item [routerLink]="['/um']">Unidades de Medida</a>
+              <a mat-list-item routerLink=".">Relacionar unidades de medida</a>
+              <a mat-list-item routerLink=".">Insumos</a>
+              <a mat-list-item routerLink=".">Categorías</a>
+            </mat-expansion-panel>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <mat-icon mat-list-icon>attach_money</mat-icon> Finanzas
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        <a mat-list-item routerLink="."><mat-icon mat-list-icon svgIcon="inventory"></mat-icon> Inventario</a>
+        <a mat-list-item routerLink="."><mat-icon mat-list-icon>list</mat-icon> Informes</a>
+        <a mat-list-item routerLink="."><mat-icon mat-list-icon>show_chart</mat-icon> Indicadores Gráficos</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+
