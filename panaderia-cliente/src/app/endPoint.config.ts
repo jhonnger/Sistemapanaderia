@@ -1,6 +1,6 @@
 export class AppSettings {
 
-  public static API_ENDPOINT = 'http://panaderia.net/';
+  public static API_ENDPOINT = '/';
   public static meses = [
     {v: 0, d: 31, n: 'Enero'},  {v: 1, d: 28, n: 'Febrero'},   {v: 2, d: 31, n: 'Marzo'},
     {v: 3, d: 30, n: 'Abril'},  {v: 4, d: 31, n: 'Mayo'},      {v: 5, d: 30, n: 'Junio'},
