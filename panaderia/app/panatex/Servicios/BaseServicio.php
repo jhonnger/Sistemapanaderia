@@ -43,7 +43,7 @@ class BaseServicio
     }
     public function create($data)
     {
-        $usuarioAutenticado = JWTAuth::parseToken()->toUser()->panaderia_id;
+        $usuarioAutenticado = JWTAuth::parseToken()->toUser();
         $idPanaderia = $usuarioAutenticado->panaderia_id;
 
         $data["panaderia_id"] = $idPanaderia;

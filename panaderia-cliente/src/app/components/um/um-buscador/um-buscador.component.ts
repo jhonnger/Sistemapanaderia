@@ -41,7 +41,11 @@ export class UmBuscadorComponent implements OnInit {
           const paginacion: any  = data.data;
           this.unidades = paginacion.data;
           this.paginacion.paginaActual = paginacion.current_page;
-          this.paginacion.totalPaginas = Math.floor(paginacion.total / paginacion.per_page) + 1;
+
+          const total = paginacion.total;
+          const per_page = paginacion.per_page;
+
+          this.paginacion.totalPaginas = Math.floor(total / per_page) + ((total % per_page === 0) ? 0 : 1);
           this.dataSource = new MatTableDataSource(this.unidades);
           console.log(paginacion);
         }
